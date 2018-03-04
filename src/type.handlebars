@@ -1,0 +1,45 @@
+{{#ifDirective this "entity" }}
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('{{toLowerCase name }}', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      {{#each fields}}
+      {{#ifDirective this "UUID"}}
+      {{ ../name }}: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+      },
+      {{/ifDirective}}
+      {{#ifDirective this "Column"}}
+      {{ ../name }}: {
+        type: Sequelize.{{ toMysqlType ../this }}
+      },
+      {{/ifDirective}}
+      {{#ifDirective this "BelongsTo"}}
+      {{#if foreignKey}}{{foreignKey}}{{else}}{{ ../name }}Id{{/if}}: {
+        type: Sequelize.INTEGER
+      },
+      {{/ifDirective}}
+      {{/each}}
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('{{toLowerCase name }}');
+  }
+};
+
+{{/ifDirective}}

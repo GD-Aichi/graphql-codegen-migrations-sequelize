@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.rulers": [110],
+  "editor.wordWrapColumn": 110,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 110,
+  "editor.formatOnSave": false,
+  "files.exclude": {
+    "**/.git": true,
+    "src/**/.js": true,
+    "**/.DS_Store": true,
+    "node_modules": true,
+    "coverage": true,
+    "npm": true
+  }
+}
