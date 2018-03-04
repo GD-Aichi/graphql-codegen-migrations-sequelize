@@ -9,13 +9,7 @@ const map = {
   ID: 'STRING',
 };
 
-const rawloader = (source) => {
-  return JSON.stringify(source)
-    .replace(/\u2028/g, '\\u2028')
-    .replace(/\u2029/g, '\\u2029');
-};
-
-const type = rawloader(fs.readdirSync('./type.handlebars', 'utf8'));
+const type = fs.readdirSync(__dirname + '/type.handlebars', 'utf8');
 
 const config = {
   inputType: 'MULTIPLE_FILES',
@@ -46,4 +40,6 @@ const config = {
   }
 };
 
-module.exports = config;
+module.exports = {
+  default: config,
+};
