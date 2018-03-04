@@ -7,6 +7,8 @@ directive @entity on OBJECT
 directive @UUID on FIELD_DEFINITION
 directive @Column(dataType: String) on FIELD_DEFINITION
 directive @BelongsTo(foreignKey: String) on FIELD_DEFINITION
+directive @HasMany(foreignKey: String!) on FIELD_DEFINITION
+directive @BelongsToMany(through: String!, foreignKey: String!, otherKey: String!) on FIELD_DEFINITION
 ```
 run gql-gen
 ```bash
@@ -94,6 +96,7 @@ postId: {
 }
 ```
 #### @Column(dataType: String)
+sets [dataType](http://docs.sequelizejs.com/manual/tutorial/models-definition.html#data-types) explicitly
 for example:
 ```graphql
 type Post @entity {
