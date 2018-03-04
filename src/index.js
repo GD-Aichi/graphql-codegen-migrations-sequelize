@@ -9,7 +9,7 @@ const map = {
   ID: 'STRING',
 };
 
-const type = fs.readdirSync(__dirname + '/type.handlebars', 'utf8');
+const type = fs.readFileSync(__dirname + '/type.handlebars', 'utf8');
 
 const config = {
   inputType: 'MULTIPLE_FILES',
