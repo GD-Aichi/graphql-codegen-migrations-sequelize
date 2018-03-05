@@ -57,8 +57,6 @@ const config = {
       return options && options.inverse ? options.inverse(context) : '';
     },
     toMany: (context, options) => {
-      console.log(toMany);
-      console.log(context);
       if (context && context !== '') {
         if (context.directives['BelongsToMany'] && context.directives['BelongsToMany'].through) {
           const through = context.directives['BelongsToMany'].through;
