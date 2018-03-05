@@ -22,8 +22,7 @@ module.exports = {
         {{ ../name }}: {
           type: Sequelize.{{ toMysqlType ../this }}{{#if defaultValue}},
           defaultValue: {{#ifCond ../type "==" "String" }}'{{defaultValue}}'{{else}}{{defaultValue}}{{/ifCond}},
-          allowNull: false
-          {{/if}}
+          allowNull: false{{/if}}
         },
         {{/ifDirective}}
         {{#ifDirective this "BelongsTo"}}
