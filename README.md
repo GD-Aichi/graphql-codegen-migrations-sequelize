@@ -5,7 +5,7 @@ add directives
 ```graphql
 directive @entity on OBJECT
 directive @UUID on FIELD_DEFINITION
-directive @Column(dataType: String) on FIELD_DEFINITION
+directive @Column(dataType: String, defaultValue: String) on FIELD_DEFINITION
 directive @BelongsTo(foreignKey: String) on FIELD_DEFINITION
 directive @BelongsToMany(through: String!) on FIELD_DEFINITION
 ```
