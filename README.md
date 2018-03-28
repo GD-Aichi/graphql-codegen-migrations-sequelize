@@ -3,7 +3,7 @@ This generator template generate files of sequelize migrations
 ## Usage
 add directives
 ```graphql
-directive @entity on OBJECT
+directive @entity(tableName: String) on OBJECT
 directive @UUID on FIELD_DEFINITION
 directive @Column(dataType: String, defaultValue: String) on FIELD_DEFINITION
 directive @BelongsTo(foreignKey: String) on FIELD_DEFINITION
