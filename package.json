@@ -1,6 +1,6 @@
 {
   "name": "graphql-codegen-migrations-sequelize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Migration sequelize generators for GraphQL Codegen.",
   "main": "src/index.js",
   "author": "Jens Kolberg <jens.kolberg@gamesdynamics.com>",
