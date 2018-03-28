@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return Promise.all([
-      queryInterface.createTable('{{#if tableName}}{{tableName}}{{else}}{{ toCamelCase ../name }}', {
+      queryInterface.createTable('{{#if tableName}}{{tableName}}{{else}}{{ toCamelCase ../name }}{{/if}}', {
         id: {
           allowNull: false,
           autoIncrement: true,
@@ -60,7 +60,7 @@ module.exports = {
   },
   down: (queryInterface, Sequelize) => {
     return Promise.all([
-      queryInterface.dropTable('{{#if tableName}}{{tableName}}{{else}}{{ toCamelCase ../name }}'),
+      queryInterface.dropTable('{{#if tableName}}{{tableName}}{{else}}{{ toCamelCase ../name }}{{/if}}'),
       {{#each fields}}
         {{#ifDirective this "BelongsToMany"}}
           {{#ifToMany ../this }}
